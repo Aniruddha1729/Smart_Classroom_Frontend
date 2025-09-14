@@ -1,0 +1,57 @@
+/* navbar.css - Styles for the navigation bar component */
+
+ .navbar {
+  background: linear-gradient(90deg, #232946 0%, #0057ff 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+ .navbar-logo h1{
+  color: #fff;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navbar-logo img,
+.navbar-logo h1 {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Remove default list-style from li elements */
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15rem;
+  transition: color 0.2s;
+}
+
+/* Remove default blue color from links */
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-links a:hover {
+  color: #ffd500;
+}
