@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function Navbar() {
   return (
     <nav className="bg-gradient-to-r from-slate-800 to-blue-600 px-8 py-4 flex flex-row items-center h-15 justify-between">
