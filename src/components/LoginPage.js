@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function LoginPage() {
   return (
     <div className='flex flex-col justify-center items-center bg-white w-1/2 rounded-xl shadow-lg shadow-black/20'>
