@@ -1,15 +1,13 @@
 import React from 'react'
 
-import './footer.css'
-
 
 function Footer() {
   return (
-  <div className="footer">
-    <footer className="footer">
-      <p>2024 My Website. All rights reserved.</p>
-    </footer>
-  </div>
+    <div className="w-full h-15 bg-gradient-to-r from-slate-800 to-blue-600 text-white text-center py-4 shadow-lg shadow-black/5">
+      <footer>
+        <p>2024 My Website. All rights reserved.</p>
+      </footer>
+    </div>
   )
 }
 
