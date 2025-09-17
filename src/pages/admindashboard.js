@@ -1,8 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaChalkboardTeacher, FaDoorOpen, FaUsers, FaBook, FaCog, FaCalendarAlt } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("");
+  const navigate = useNavigate();
+
+  const handleSectionClick = (sectionKey) => {
+    if (sectionKey === "classrooms") {
+      // Navigate to classroom page
+      navigate("/classroom");
+    } else {
+      // Set active section for other items
+      setActiveSection(sectionKey);
+    }
+  };
 
   const sections = [
     { key: "teachers", label: "Manage Faculty", desc: "Add, edit and organize faculty", icon: FaChalkboardTeacher, color: "from-indigo-500 to-indigo-600" },
@@ -43,7 +55,7 @@ const AdminDashboard = () => {
           {sections.map((s) => (
             <button
               key={s.key}
-              onClick={() => setActiveSection(s.key)}
+              onClick={() => handleSectionClick(s.key)}
               className={`flex items-center w-full px-3 py-2 rounded transition-colors ${
                 activeSection === s.key ? "bg-indigo-600" : "hover:bg-indigo-600/60"
               }`}
@@ -76,7 +88,7 @@ const AdminDashboard = () => {
           {sections.map((s) => (
             <button
               key={s.key}
-              onClick={() => setActiveSection(s.key)}
+              onClick={() => handleSectionClick(s.key)}
               className="group text-left"
             >
               <div className="relative overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg transition-shadow">
