@@ -45,7 +45,7 @@ function LoginPage({ setIsAuthenticated }) {
   }
   return (
     <div className='flex items-center justify-center min-h-[calc(100vh-200px)]'>
-      <div className='flex flex-col justify-center items-center bg-white w-full max-w-2xl mx-auto rounded-xl shadow-lg shadow-black/20'>
+      <div className='flex flex-col justify-center items-center bg-white w-full max-w-xl mx-auto rounded-xl shadow-lg shadow-black/20'>
         <div className='w-36 mb-4'>
           <img src="logo.svg" alt="logo" />
         </div>
@@ -126,7 +126,7 @@ function LoginPage({ setIsAuthenticated }) {
                 type="password" 
                 placeholder="Password" 
                 required 
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
+                className='w-full  border-0 border-b- border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
             <button 
