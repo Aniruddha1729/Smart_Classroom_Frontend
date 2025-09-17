@@ -3,18 +3,25 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <nav className="bg-gradient-to-r from-slate-800 to-blue-600 px-8 py-4 flex flex-row items-center h-15 justify-between">
-      <div className="flex items-center gap-5">
-        <img src="logo.svg" alt="Logo" className="h-10 w-auto" />
-        <h1 className="text-white m-0 text-2xl h-10">My Website</h1>
+    <nav className="px-6 md:px-10 py-4 flex flex-row items-center justify-between bg-gradient-to-r from-slate-800 to-blue-600 shadow-sm">
+      <div className="flex items-center gap-4">
+        <img src="logo.svg" alt="Logo" className="h-9 w-auto" />
+        <h1 className="m-0 text-xl md:text-2xl font-semibold text-white">SmartStacks</h1>
       </div>
-     
-      <ul className="flex gap-6 list-none">
-        <li><a href="#home" className="text-white no-underline font-medium text-lg transition-colors duration-200 hover:text-yellow-400">Home</a></li>
-        <li><a href="#about" className="text-white no-underline font-medium text-lg transition-colors duration-200 hover:text-yellow-400">About</a></li>
-        <li><a href="#services" className="text-white no-underline font-medium text-lg transition-colors duration-200 hover:text-yellow-400">Services</a></li>
-        <li><a href="#contact" className="text-white no-underline font-medium text-lg transition-colors duration-200 hover:text-yellow-400">Contact</a></li>
+      
+      <ul className="hidden md:flex gap-6 list-none items-center">
+        <li><a href="#home" className="text-white/90 no-underline font-medium text-base md:text-lg transition-colors duration-200 hover:text-white">Home</a></li>
+        <li><a href="#about" className="text-white/90 no-underline font-medium text-base md:text-lg transition-colors duration-200 hover:text-white">About</a></li>
+        <li><a href="#services" className="text-white/90 no-underline font-medium text-base md:text-lg transition-colors duration-200 hover:text-white">Services</a></li>
+        <li><a href="#contact" className="text-white/90 no-underline font-medium text-base md:text-lg transition-colors duration-200 hover:text-white">Contact</a></li>
       </ul>
+      
+      <div className="md:hidden" aria-hidden>
+        {/* Mobile menu placeholder */}
+        <div className="w-6 h-0.5 bg-gray-800 mb-1"></div>
+        <div className="w-6 h-0.5 bg-gray-800 mb-1"></div>
+        <div className="w-6 h-0.5 bg-gray-800"></div>
+      </div>
     </nav>
   )
 }
