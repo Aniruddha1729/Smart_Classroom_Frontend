@@ -1,19 +1,28 @@
 import './App.css';
 import Navbar from './components/navbar'; 
 import Footer from './components/footer';
-import LoginPage from './components/LoginPage';
-import SideImage from './components/sideimage';
+import AdminLoginPage from './pages/adminloginpage';
+import AdminDashboard from './pages/admindashboard';
+import { useState } from "react";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-   <>
-   <Navbar />
-   <div className="main-content">
-     <SideImage />
-      <LoginPage />
-   </div>
-   <Footer />
-   </>
+    <>
+      <Navbar />
+
+      <div className="main-content">
+        {/* If logged in → show Dashboard else → show Login */}
+        {!isAuthenticated ? (
+          <AdminLoginPage setIsAuthenticated={setIsAuthenticated} />
+        ) : (
+          <AdminDashboard />
+        )}
+      </div>
+
+      <Footer />
+    </>
   );
 }
 export default App;
