@@ -44,19 +44,19 @@ function LoginPage({ setIsAuthenticated }) {
     }
   }
   return (
-    <div className='flex flex-col justify-center items-center bg-white w-1/2 rounded-xl shadow-lg shadow-black/20'>
-      <div className='w-36 mb-4'>
-        <img src="logo.svg" alt="logo" />
-      </div>
-      
-      <div className='flex flex-col items-center justify-center gap-8 p-8'>
+    <div className='flex items-center justify-center min-h-[calc(100vh-200px)]'>
+      <div className='flex flex-col justify-center items-center bg-white w-full max-w-2xl mx-auto rounded-xl shadow-lg shadow-black/20'>
+        <div className='w-36 mb-4'>
+          <img src="logo.svg" alt="logo" />
+        </div>
+        <div className='flex flex-col items-center justify-center gap-8 p-8'>
         <h1 className='text-2xl font-bold'>{isRegistering ? 'Admin Register' : 'Admin Login'}</h1>
         {error && (
           <div className='text-red-600 text-sm'>{error}</div>
         )}
         {!isRegistering ? (
-          <form onSubmit={handleLoginSubmit} className='flex flex-col gap-4 justify-center items-center p-8 rounded-lg w-full max-w-lg'>
-            <div className='relative w-full max-w-sm'>
+          <form onSubmit={handleLoginSubmit} className='flex flex-col gap-4 justify-center items-center p-8 rounded-lg w-full'>
+            <div className='relative w-full'>
               <svg className='absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path>
               </svg>
@@ -66,10 +66,10 @@ function LoginPage({ setIsAuthenticated }) {
                 required 
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base min-w-80 bg-transparent'
+                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
-            <div className='relative w-full max-w-sm'>
+            <div className='relative w-full'>
               <svg className='absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'></path>
               </svg>
@@ -79,7 +79,7 @@ function LoginPage({ setIsAuthenticated }) {
                 required 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base min-w-80 bg-transparent'
+                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
             <button 
@@ -95,8 +95,8 @@ function LoginPage({ setIsAuthenticated }) {
             </div>
           </form>
         ) : (
-          <form onSubmit={handleRegisterSubmit} className='flex flex-col gap-4 justify-center items-center p-8 rounded-lg w-full max-w-lg'>
-            <div className='relative w-full max-w-sm'>
+          <form onSubmit={handleRegisterSubmit} className='flex flex-col gap-4 justify-center items-center p-8 rounded-lg w-full'>
+            <div className='relative w-full'>
               <svg className='absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'></path>
               </svg>
@@ -104,10 +104,10 @@ function LoginPage({ setIsAuthenticated }) {
                 type="text" 
                 placeholder="Username" 
                 required 
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base min-w-80 bg-transparent'
+                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
-            <div className='relative w-full max-w-sm'>
+            <div className='relative w-full'>
               <svg className='absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0z'></path>
               </svg>
@@ -115,10 +115,10 @@ function LoginPage({ setIsAuthenticated }) {
                 type="email" 
                 placeholder="Email" 
                 required 
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base min-w-80 bg-transparent'
+                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
-            <div className='relative w-full max-w-sm'>
+            <div className='relative w-full'>
               <svg className='absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'></path>
               </svg>
@@ -126,7 +126,7 @@ function LoginPage({ setIsAuthenticated }) {
                 type="password" 
                 placeholder="Password" 
                 required 
-                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base min-w-80 bg-transparent'
+                className='w-full pl-10 pr-3 py-3 border-0 border-b-2 border-gray-300 rounded-none focus:border-b-blue-500 focus:outline-none text-base bg-transparent'
               />
             </div>
             <button 
@@ -143,6 +143,7 @@ function LoginPage({ setIsAuthenticated }) {
           </form>
         )}
       </div>
+    </div>
     </div>
   )
 }
