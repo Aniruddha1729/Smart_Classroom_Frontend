@@ -2,19 +2,27 @@ import './App.css';
 import Navbar from './components/navbar'; 
 import Footer from './components/footer';
 import AdminLoginPage from './pages/adminloginpage';
+import AdminSignupPage from './pages/adminsignuppage';
 import AdminDashboard from './pages/admindashboard';
-import Classroom from './pages/classroom';
+import ManageDivision from './pages/ManageDivision';
+import ManageSubjects from './pages/ManageSubjects';
+import ManageSettings from './pages/ManageSettings';
+import ManageFaculty from './pages/ManageFaculty';
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
-function App() {
+function AppContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const location = useLocation();
+  
+  // Don't show navbar on login/signup pages
+  const showNavbar = !['/login', '/signup'].includes(location.pathname);
 
   return (
-    <Router>
-      <Navbar />
+    <div className="min-h-screen flex flex-col">
+      {showNavbar && <Navbar setIsAuthenticated={setIsAuthenticated} />}
 
-      <div className="flex-grow min-h-screen bg-gray-100 py-10 px-4">
+      <div className="flex-grow bg-gray-100 py-10 px-4">
         <Routes>
           {/* Public Routes */}
           <Route 
@@ -22,6 +30,16 @@ function App() {
             element={
               !isAuthenticated ? (
                 <AdminLoginPage setIsAuthenticated={setIsAuthenticated} />
+              ) : (
+                <Navigate to="/dashboard" replace />
+              )
+            } 
+          />
+          <Route 
+            path="/signup" 
+            element={
+              !isAuthenticated ? (
+                <AdminSignupPage />
               ) : (
                 <Navigate to="/dashboard" replace />
               )
@@ -41,9 +59,47 @@ function App() {
           />
           
           <Route 
-            path="/classroom" 
-            element={<Classroom />} 
+            path="/divisions" 
+            element={
+              isAuthenticated ? (
+                <ManageDivision />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
           />
+          <Route 
+            path="/faculty" 
+            element={
+              isAuthenticated ? (
+                <ManageFaculty />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route 
+            path="/subjects" 
+            element={
+              isAuthenticated ? (
+                <ManageSubjects />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route 
+            path="/settings" 
+            element={
+              isAuthenticated ? (
+                <ManageSettings />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+
+          
           
           {/* Default Route */}
           <Route 
@@ -60,7 +116,16 @@ function App() {
       </div>
 
       <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
+
 export default App;
